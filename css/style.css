@@ -1,0 +1,46 @@
+
+* {background-color: lightgrey; }
+
+.fone { width: 960px;  background-color: blue;  margin:100px;  margin-left: 300px;   display: block; }
+.xbtn {
+ background: linear-gradient(to bottom, #d7eaea 0%,  #62b5ba 100%);
+ color: #fff;
+ font-size: 30px;
+ text-shadow: 0 1px 0 #757575;
+ padding: 4px 0 5px 0;
+ margin: 0;
+ cursor: pointer;
+ border: 0;
+ border-top: 1px solid #87c286;
+ border-right: 1px solid #0e780c;
+ border-left: 1px solid #0e780c;
+ border-bottom: 1px solid #0e780c;
+ box-shadow: 0 -1px 0 #0e780c, 0 1px 0 #fff;
+ width: 100px;
+ height: 100px;
+ border-radius: 2px;
+}
+
+.xbtn-highline
+{
+ background: linear-gradient(to bottom, #888888 0%,  #aaaaee 100%);
+ color: #fff;
+ font-size: 30px;
+ text-shadow: 0 1px 0 #757575;
+ padding: 4px 0 5px 0;
+ margin: 0;
+ cursor: pointer;
+ border: 0;
+ border-top: 1px solid #87c286;
+ border-right: 1px solid #0e780c;
+ border-left: 1px solid #0e780c;
+ border-bottom: 1px solid #0e780c;
+ box-shadow: 0 -1px 0 #0e780c, 0 1px 0 #fff;
+ width: 100px;
+ height: 100px;
+ border-radius: 2px;
+}
+
+
+.rezblock {  background: gray;  width: 320px; height: 320px;  border-top-right-radius: 15px; 
+border-bottom-left-radius:  20px;   border-bottom-right-radius: 5px;  margin:  auto; }

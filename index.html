@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <!-- Кодировка документа -->
+  <meta charset="utf-8">
+  <!-- Заголовок страницы -->
+  <title>   </title>
+  <!-- Подключения таблицы стилей Bootstrap 3 -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <!-- Подключение темы со стилями Bootstrap 3 -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
+  <!-- Подключение таблицы стилей иконок Awesome -->
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+  
+  <!-- Подключение таблицы стилей, в которой будем прописывать свои стили -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css"  href="css/normalize.css">
+
+  <!-- Подключение библиотеки jQuery для работы скриптов Bootstrap 3 -->
+  <script src="js/jquery-1.11.1.js"></script>
+  <!-- Подключение скриптов Bootstrap 3 -->
+  <script src="js/bootstrap.js"></script>
+   
+</head>
+
+<body>
+
+<div class="fone">
+
+ <div class="rezblock" style="float: left;"> 
+         
+           <input  id="btn0" name="btn0" type="Button"  class="xbtn" 
+           value=" " onclick= "MyClick(name )" >
+           
+            <input id="btn1" name="btn1" type="Button"  class="xbtn" 
+           value=" " onclick= "MyClick(name)" >
+  
+          <input id="btn2" name="btn2" type="Button"  class="xbtn" 
+           value=" " onclick= "MyClick(name)" >
+
+            <input id="btn3" name="btn3" type="Button"  class="xbtn" 
+           value=" " onclick= "MyClick(name)" >
+
+            <input id="btn4" name="btn4" type="Button"  class="xbtn" 
+           value=" " onclick= "MyClick(name)" >
+
+            <input id="btn5"  name="btn5" type="Button"  class="xbtn" 
+           value=" " onclick= "MyClick(name)" >
+
+            <input id="btn6" name="btn6" type="Button"  class="xbtn" 
+           value=" " onclick= "MyClick(name)" >
+
+            <input id="btn7" name="btn7" type="Button"  class="xbtn" 
+           value=" " onclick= "MyClick(name)" >
+
+            <input id="btn8"  name="btn8" type="Button"  class="xbtn" 
+           value=" " onclick= "MyClick(name)" >
+</div>
+      
+</div> <!-- fone -->
+
+
+<script  >  
+function MyClick (xx) 
+{  //alert (xx); 
+var numsell=  +(xx[3]);                    // получили из имени кнопки ее номер  0..8  
+    if (emptyCell(numsell)==true)    // клетка свободна 
+     {  ar[numsell]='X';             // пишем Х в массив
+               document.getElementById(xx).value='X';
+         bclick=true;
+          // alert('Отработал MyClick');
+          return true;
+     }
+}
+</script>
+
+
+<script  >  
+
+var ar=[9];
+var i,k;
+var xx, ee;// временные
+var b1,b2,b3 ; // номера кнопок, составивших ряд
+
+
+
+function emptyCell(i)
+{
+if (ar[i]=='') return  true; 
+//alert(ar[i]);
+return false;
+ }
+
+
+
+function getRandomInt(min, max)
+{
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function robotclick()
+{    var numsell=getRandomInt(0, 8);
+   if (emptyCell(numsell) )    // клетка свободна 
+     {  ar[numsell]='0';          // пишем нолик в клетку
+        var xx= "btn"+numsell;
+       // alert( xx.length );
+        document.getElementById(xx).value='0';     // пишем нолик на кнопку
+      // alert('отработал robotclick');
+        return true;
+     }  
+    robotclick();
+    return true;
+}
+function robot2click()
+{    var numsell=getRandomInt(0, 8);
+   if (emptyCell(numsell) )    // клетка свободна 
+     {  ar[numsell]='0';          // пишем нолик в клетку
+        var xx= "btn"+numsell;
+       // alert( xx.length );
+        document.getElementById(xx).value='X';     // пишем нолик на кнопку
+      // alert('отработал robotclick');
+        return true;
+     }  
+    robotclick();
+    return true;
+}
+
+function ifwinner()
+{           // горизонталь
+          if (ar[0]!='' && ar[0]==ar[1] && ar[0]==ar[2]) {highlineWin(0,1,2);    return true;}
+           if (ar[3]!='' && ar[3]==ar[4] && ar[3]==ar[5]) {highlineWin(3,4,5);    return true;}
+            if (ar[6]!='' && ar[6]==ar[7] && ar[6]==ar[8]) {highlineWin(6,7,8);    return true;}
+            // вертикаль
+             if (ar[0]!='' && ar[0]==ar[3] && ar[0]==ar[6]) {highlineWin(0,3,6);    return true;}
+              if (ar[1]!='' && ar[1]==ar[4] && ar[1]==ar[7]) {highlineWin(1,4,7);    return true;}
+               if (ar[2]!='' && ar[2]==ar[5] && ar[2]==ar[8]) {highlineWin(2,5,8);    return true;}
+             // диагональ 
+            if (ar[0]!='' && ar[0]==ar[4] && ar[0]==ar[8]) {highlineWin(0,4,8);    return true;}
+            if (ar[2]!='' && ar[2]==ar[4] && ar[2]==ar[6]) {highlineWin(2,4,6);    return true;}    
+          // alert('no winner'); 
+          return false;
+}
+
+
+function highlineWin(b1, b2, b3)
+{
+                    var namesell='btn'+b1 ;     // получили из имени кнопки ее номер  0..8  
+                     var a=document.getElementById(namesell);
+                     a.className = "xbtn-highline";
+                     
+                     var namesell='btn'+b2 ;     // получили из имени кнопки ее номер  0..8  
+                     a=document.getElementById(namesell);
+                     a.className = "xbtn-highline";      
+
+                    var namesell='btn'+b3 ;     // получили из имени кнопки ее номер  0..8  
+                    a=document.getElementById(namesell);
+                    a.className = "xbtn-highline"; 
+      
+        return true;
+}
+
+function mySleep(ms)
+{ms+=new Date().getTime(); 
+while (new Date() < ms ) {}
+}
+
+// -------------------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------
+
+//  заполняем справочный массив 
+for (var i = 0 ; i <= 8; i++) { ar[i]='';}
+
+
+var turncount=0;
+var winner=false;
+ var bclick=false;
+
+setTimeout(function tick (k) {
+ 
+  if ((5 == k) || ifwinner())   return;
+ 
+  setTimeout(tick, 2000, k);
+
+ robotclick();
+
+}, 2000, 0)
+
+
+</script>
+
+
+
+
+</body>
+</html>
